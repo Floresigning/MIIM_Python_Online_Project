@@ -125,7 +125,7 @@ def search_or_filter_tasks():
 
         is_overdue = False
         try:
-            deadline_date = datetime.strptime(deadline, "YYYY-MM-DD").date()
+            deadline_date = datetime.strptime(deadline, "%Y-%m-%d").date()
             is_overdue = (deadline_date < today) and not completed
         except ValueError:
             pass
