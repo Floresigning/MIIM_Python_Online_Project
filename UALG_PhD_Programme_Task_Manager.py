@@ -33,6 +33,7 @@ def add_task():
 
     conn = sqlite3.connect("tasks.db")
     cursor = conn.cursor()
+
     cursor.execute(
         "INSERT INTO tasks (description, deadline, priority, progress, completed) VALUES (?, ?, ?, ?, ?)",
         (description, deadline, priority, progress, completed)
@@ -186,7 +187,7 @@ def edit_task():
     """, (new_description, new_deadline, new_priority, new_progress, new_completed, task_id))
     conn.commit()
     conn.close()
-    print("✏️ Task updated successfully.\n")
+    print("✅ Task updated successfully.\n")
 
 
 # Update progress
@@ -209,7 +210,7 @@ def update_progress():
     """, (new_progress, new_completed, task_id))
     conn.commit()
     conn.close()
-    print("📈 Progress updated.\n")
+    print("✅ Progress updated.\n")
 
 # Delete a task
 def delete_task():
